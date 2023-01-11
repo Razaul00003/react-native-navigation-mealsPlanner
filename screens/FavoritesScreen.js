@@ -1,12 +1,7 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { Text } from 'react-native';
 
-const FavoritesScreen = () => {
-  return (
-    <View>
-      <Text>FavoritesScreen</Text>
-    </View>
-  );
-};
+function FavoritesScreen() {
+  return <Text>The favorites screen!</Text>;
+}
 
 export default FavoritesScreen;
