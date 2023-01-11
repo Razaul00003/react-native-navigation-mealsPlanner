@@ -10,14 +10,14 @@ import { FavoritesContext } from "../store/context/favorites-context";
 
 function MealDetailScreen({ route, navigation }) {
   const favoriteMealsCtx = useContext(FavoritesContext);
-  const mealId = route.params.mealId;
 
+  const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  const mealsIsFavorite = favoriteMealsCtx.ids.includes(mealId);
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
 
   function changeFavoriteStatusHandler() {
-    if (mealsIsFavorite) {
+    if (mealIsFavorite) {
       favoriteMealsCtx.removeFavorite(mealId);
     } else {
       favoriteMealsCtx.addFavorite(mealId);
@@ -29,7 +29,7 @@ function MealDetailScreen({ route, navigation }) {
       headerRight: () => {
         return (
           <IconButton
-            icon={mealsIsFavorite ? "star" : "star-outline"}
+            icon={mealIsFavorite ? "star" : "star-outline"}
             color="white"
             onPress={changeFavoriteStatusHandler}
           />
